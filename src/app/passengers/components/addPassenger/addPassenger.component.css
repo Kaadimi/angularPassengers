@@ -1,0 +1,34 @@
+#addPassengerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#addPassengerForm input {
+   
+}
+
+#addNewPassenger {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.formInnerContainers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+#addChildContainer {
+    display: flex;
+}
+
+#submitBtn {
+    width: 100%;
+    background: rgb(0, 92, 168);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}

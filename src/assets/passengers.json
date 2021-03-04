@@ -1,0 +1,37 @@
+{
+  "passengers": [
+    {
+      "id": 6,
+      "fullName": "sdfsdf",
+      "checkedIn": true,
+      "checkInDate": 1614874999847,
+      "children": [
+        {
+          "id": 0,
+          "name": "fg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "fullName": "ilias",
+      "checkedIn": true,
+      "checkInDate": 1614866208911,
+      "children": []
+    },
+    {
+      "id": 8,
+      "fullName": "sdfsd",
+      "checkedIn": true,
+      "checkInDate": 1616198400000,
+      "children": []
+    },
+    {
+      "id": 9,
+      "fullName": "asdsad",
+      "checkedIn": false,
+      "checkInDate": null,
+      "children": []
+    }
+  ]
+}

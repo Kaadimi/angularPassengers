@@ -1,0 +1,51 @@
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    width: 90%;
+}
+
+#passengerCounters {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+#passengerCounters p {
+    font-weight: 700;
+}
+
+#passengerOuterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+}
+
+#passengerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgb(11, 33, 73);
+    font-weight: bold;
+    color: #fff;
+}
+
+#addPassenger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background: rgb(11, 33, 73);
+    color: #fff;
+    border-radius: 5px;
+}

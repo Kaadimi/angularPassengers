@@ -1,0 +1,24 @@
+<h1 id="addNewPassenger">Add new Passenger</h1>
+<form id="addPassengerForm" #addForm="ngForm" (ngSubmit)="addPassenger(addForm)">
+    <div class="formInnerContainers">
+        <label fro="passengerName">Passenger name</label>
+        <input id="passengerName" name="passenger" placeholder="Passenger name..." ngModel>
+    </div>
+    <h3 *ngIf="children.length">Children</h3>
+    <div class="formInnerContainers"  *ngFor="let child of children">
+        <span>{{child.id}} - {{ child.name }}</span>
+    </div>
+    <form class="formInnerContainers" #childForm="ngForm" (ngSubmit)="addChild(childForm)">
+        <label fro="childName">Child name</label>
+        <div id="addChildContainer">
+            <input type="text" id="childName" name="childName" placeholder="Child name..." ngModel/>
+            <button type="submit">Add Child</button>
+        </div>
+    </form>
+
+    <div class="formInnerContainers">
+        <label fro="checkInDate">checkInDate</label>
+        <input for="checkInDate" name="date" [min]="todayDate()" type="date" ngModel/>
+    </div>
+    <button id="submitBtn" type="submit">ADD</button>
+</form>

@@ -1,0 +1,8 @@
+<h3>Airline passengers</h3>
+<passenger-counter id="passengerCounters" [nbOfCheckedIn]="nbCheckedIn(passengers)" [nbOfPassengers]="passengers.length"></passenger-counter>
+<div id="mainContainer">
+    <div id="passengerOuterContainer">
+        <passenger-component id="passengerContainer" *ngFor="let passenger of passengers; let i = index"  [passenger]="passenger" [i]="i" (editEvent)="editPassenger($event)" (removeEvent)="deletePassenger($event)"></passenger-component>
+    </div>
+    <add-passenger id="addPassenger" (addEvent)="addPassenger($event)"></add-passenger>
+</div>
