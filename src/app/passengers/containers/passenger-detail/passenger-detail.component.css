@@ -1,0 +1,37 @@
+#passengerDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 0;left: 0;right: 0;bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    background: rgb(7, 22, 66);
+    border-radius: 5px;
+    color: #fff;
+}
+
+#goBackBtn {
+    display: block;
+    float: left;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: rgb(0, 132, 255);
+}
+
+#passengerDetailContainer h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#passengerInnerContainer {
+    width: 100%;
+    text-align: center;
+}

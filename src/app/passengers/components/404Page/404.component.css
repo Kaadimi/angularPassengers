@@ -1,0 +1,22 @@
+#pageNotFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;left: 0;right: 0;bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 150px;
+    background: rgb(7, 22, 66);
+    border-radius: 5px;
+    color: #fff;
+}
+
+#pageNotFoundContainer a {
+    text-decoration: none;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}

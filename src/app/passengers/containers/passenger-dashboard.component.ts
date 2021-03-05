@@ -27,19 +27,25 @@ export class PassengerDashboardModuleComponent implements OnInit, OnDestroy {
     }
 
     editPassenger(passenger: Passenger): void {
-        this.passengerEditSubscription = this.passengerService.editPassenger(passenger).subscribe(res => {
-            this.passengers = this.passengers.map(el => {
-                    if (el.id === passenger.id)
-                        return passenger;
-                    return el;
-                })
-        });
+        this.passengerEditSubscription = this.passengerService.editPassenger(passenger).subscribe(() =>
+            {
+                this.passengers = this.passengers.map(el => {
+                        if (el.id === passenger.id)
+                            return passenger;
+                        return el;
+                    })
+            },
+            error => console.log(error),
+            () => this.passengerEditSubscription.unsubscribe()
+        );
     }
 
     deletePassenger(id: number): void {
-        this.passengerDeleteSubscription = this.passengerService.deletePassenger(id).subscribe(res => {
-            this.passengers = this.passengers.filter(el => el.id !== id)
-        }); 
+        this.passengerDeleteSubscription = this.passengerService.deletePassenger(id).subscribe(() =>
+            this.passengers = this.passengers.filter(el => el.id !== id),
+            error => console.log(error),
+            () => this.passengerDeleteSubscription.unsubscribe()
+        ); 
     }
 
     uniqueId() {
@@ -52,15 +58,13 @@ export class PassengerDashboardModuleComponent implements OnInit, OnDestroy {
     }
 
     addPassenger(passenger: Passenger): void {
-        this.passengerAddSubscription = this.passengerService.addPassenger({...passenger, id: this.uniqueId()}).subscribe(res => {
-            this.passengers = [...this.passengers, passenger]
-        })
+        this.passengerAddSubscription = this.passengerService.addPassenger({...passenger, id: this.uniqueId()}).subscribe(() =>
+            this.passengers = [...this.passengers, passenger],
+            error => console.log(error),
+            () => this.passengerAddSubscription.unsubscribe())
     }
 
     ngOnDestroy(): void {
         this.passengerGetSubscription.unsubscribe();
-        this.passengerDeleteSubscription.unsubscribe();
-        this.passengerEditSubscription.unsubscribe();
-        this.passengerAddSubscription.unsubscribe();
     }
 }

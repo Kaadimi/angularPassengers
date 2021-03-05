@@ -1,4 +1,6 @@
 import { Component, Output ,Input, OnInit, EventEmitter } from '@angular/core'
+import { Location } from '@angular/common'
+
 import { Passenger } from '../../../passenger'
 
 @Component({
@@ -15,7 +17,7 @@ export class PassengerComponent implements OnInit {
     edit: boolean = false;
     name: string = '';
     
-    constructor() { }
+    constructor(private location: Location) { }
 
     ngOnInit(): void {
       this.name = this.passenger ? this.passenger.fullName : ''

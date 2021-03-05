@@ -1,0 +1,20 @@
+<div id="passengerDetailContainer">
+    <button id="goBackBtn" (click)="goBack()">Go back</button>
+    <h1>Passenger Information</h1>
+    <div *ngIf="error">
+        <p>-\_/- NO PASSENGER FOUND</p>
+    </div>
+    <div id="passengerInnerContainer" *ngIf="passenger">
+        <p>{{ passenger.id }} - {{ passenger.fullName }}</p>
+        <div>
+            <p id="">CHILDREN</p>
+            <p>number of children : {{ passenger.children.length }}</p>
+            <ul>
+                <li *ngFor="let child of passenger.children">
+                    <p>{{ child.id }} - {{ child.name }}</p>
+                </li>
+            </ul>
+        </div>
+        <p>{{ passenger.checkedIn ? (passenger.checkInDate | date: "y MMMM d" | uppercase) : 'Not Checked In' }}</p>
+    </div>
+</div>

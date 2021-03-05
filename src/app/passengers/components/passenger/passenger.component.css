@@ -16,3 +16,20 @@
     flex-grow: 1;
     font-weight: bold;
 }
+
+#passengerHeader {
+    position: relative;
+    width: 100%;
+
+}
+
+#detailsBtn {
+    text-decoration: none;
+    background: rgb(0, 132, 255);
+    color: #fff;
+    float: right;
+    padding: 3px 5px;
+    border-radius: 2px;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(179, 179, 179, 0.25);
+}
