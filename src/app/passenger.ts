@@ -7,6 +7,6 @@ export interface Passenger   {
 }
 
 export interface Child {
-    id: number,
+    age: number,
     name: string
 }

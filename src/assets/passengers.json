@@ -1,57 +1,31 @@
 {
   "passengers": [
     {
-      "id": 6,
-      "fullName": "sdfsdf",
-      "checkedIn": true,
-      "checkInDate": 1614874999847,
-      "children": [
-        {
-          "id": 0,
-          "name": "fg"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "fullName": "ilias",
-      "checkedIn": true,
-      "checkInDate": 1614866208911,
-      "children": []
-    },
-    {
-      "id": 8,
-      "fullName": "sdfsd",
-      "checkedIn": true,
-      "checkInDate": 1616198400000,
-      "children": []
-    },
-    {
-      "id": 9,
-      "fullName": "asdsad",
-      "checkedIn": false,
-      "checkInDate": null,
-      "children": []
-    },
-    {
-      "id": 10,
-      "fullName": "454646",
+      "id": 1,
+      "fullName": "ias",
       "checkedIn": true,
       "checkInDate": 1614988800000,
+      "children": []
+    },
+    {
+      "id": 2,
+      "fullName": "test",
+      "checkedIn": true,
+      "checkInDate": 1616112000000,
       "children": [
         {
-          "id": 0,
-          "name": "55"
+          "age": 4,
+          "name": "sdfsdf"
         },
         {
-          "id": 1,
-          "name": "99"
+          "age": 10,
+          "name": "dfdf"
         }
       ]
     },
     {
-      "id": 14,
-      "fullName": "sdfsdf",
+      "id": 3,
+      "fullName": "dsdasdasd",
       "checkedIn": false,
       "checkInDate": null,
       "children": []

@@ -24,6 +24,7 @@
 
 #addChildContainer {
     display: flex;
+    flex-direction: column;
 }
 
 #submitBtn {

@@ -7,12 +7,13 @@
     </div>
     <h3 *ngIf="children.length">Children</h3>
     <div class="formInnerContainers"  *ngFor="let child of children">
-        <span>{{child.id}} - {{ child.name }}</span>
+        <span>age: {{child.age}} - name: {{ child.name }}</span>
     </div>
     <form class="formInnerContainers" #childForm="ngForm" (ngSubmit)="addChild(childForm)">
-        <label fro="childName">Child name</label>
+        <label fro="childName">Children</label>
         <div id="addChildContainer">
             <input type="text" id="childName" name="childName" placeholder="Child name..." ngModel/>
+            <input type="number" id="childAge" name="childAge" placeholder="Child age..." ngModel/>
             <button type="submit">Add Child</button>
         </div>
     </form>

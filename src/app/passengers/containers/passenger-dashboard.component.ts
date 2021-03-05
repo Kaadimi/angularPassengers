@@ -48,8 +48,19 @@ export class PassengerDashboardModuleComponent implements OnInit, OnDestroy {
         ); 
     }
 
+    // searchMatchingId(arr: Passenger[], id: number) {
+    //     const len = arr.length;
+
+    //     for (let i = 0; i < len; i++) {
+    //         if (arr[i].id === id)
+    //             return true;
+    //     }
+    //     return false;
+    // }
+
     uniqueId() {
-        const len = this.passengers.length + 1
+        const len = this.passengers.length + 1;
+
         for (let i = 0; i <= len; i++)
         {
             if (!this.passengers.some(el => el.id === i))
