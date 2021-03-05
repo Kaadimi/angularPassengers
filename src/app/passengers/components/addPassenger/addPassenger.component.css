@@ -6,7 +6,7 @@
 }
 
 #addPassengerForm input {
-   
+   border-radius: 3px;
 }
 
 #addNewPassenger {
@@ -31,4 +31,10 @@
     background: rgb(0, 92, 168);
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+#nameInputError {
+    color: #f00;
+    width: 80%;
+    text-align: center;
 }

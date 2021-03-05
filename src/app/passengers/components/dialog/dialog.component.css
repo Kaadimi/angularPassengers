@@ -1,0 +1,31 @@
+#dialogContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;
+    padding: 20px;
+    background: rgb(182, 10, 4);
+    border-radius: 5px;
+    color: #fff;
+}
+
+#closeDialog {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}

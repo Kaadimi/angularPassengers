@@ -1,8 +1,9 @@
 <h1 id="addNewPassenger">Add new Passenger</h1>
 <form id="addPassengerForm" #addForm="ngForm" (ngSubmit)="addPassenger(addForm)">
     <div class="formInnerContainers">
-        <label fro="passengerName">Passenger name</label>
-        <input id="passengerName" name="passenger" placeholder="Passenger name..." ngModel>
+        <label for="passengerName">Passenger name</label>
+        <input id="passengerName" name="fullName" placeholder="Passenger name..." ngModel required minlength="3" maxlength="25">
+        <!-- <p id="nameInputError">{{ error }}</p> -->
     </div>
     <h3 *ngIf="children.length">Children</h3>
     <div class="formInnerContainers"  *ngFor="let child of children">
@@ -22,3 +23,5 @@
     </div>
     <button id="submitBtn" type="submit">ADD</button>
 </form>
+
+<dialog-component *ngIf="error" [message]="error" (close)="closeDialog($event)"></dialog-component>

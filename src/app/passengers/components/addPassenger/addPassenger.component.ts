@@ -12,20 +12,40 @@ import { Child, Passenger } from '../../../passenger'
 export class addPassengerComponent {
     children: Child[] = []
     name: string = ''
+    error: string = ''
     @Output() addEvent: EventEmitter<Passenger> = new EventEmitter()
 
+    validateForm(passenger: any): boolean {
+        const nameRegex = /\w{3,25}/
+        return nameRegex.test(passenger);
+    }
+
     addPassenger(form: NgForm): void {
-        this.addEvent.emit({id: 0, fullName: form.value.passenger, checkedIn: true,  checkInDate: new Date(form.value.date).getTime(), children: this.children});
-        this.children = [];
-        form.reset()
+        if (this.validateForm(form.value.fullName)) {
+            this.addEvent.emit({id: 0, fullName: form.value.fullName, checkedIn: form.value.date ? true : false,  checkInDate: new Date(form.value.date).getTime(), children: this.children});
+            this.children = [];
+            this.error = ''
+            form.reset()
+        }
+        else
+            this.error = 'Passenger name can only contains alphanumeric charachters and between 3 and 25 in length.'
     }
 
     addChild(form: NgForm): void {
-        this.children = [...this.children, {id: this.children.length, name: form.value.childName}];
-        form.reset();
+        if (this.validateForm(form.value.childName))
+        {
+            this.children = [...this.children, {id: this.children.length, name: form.value.childName}];
+            form.reset();
+        }
+        else
+            this.error = 'Child name can only contains alphanumeric charachters and between 3 and 25 in length.'
     }
 
     todayDate() {
         return new Date().toISOString().split("T")[0]
+    }
+
+    closeDialog(msg: string): void {
+        this.error = msg;
     }
 }
