@@ -1,0 +1,26 @@
+<div id="addPassenger">
+    <h1 id="addNewPassenger">Edit Passenger</h1>
+    <form id="addPassengerForm" #addForm="ngForm" (ngSubmit)="editPassenger(addForm)" novalidate>
+        <div class="formInnerContainers">
+            <label for="passengerName">Passenger name</label>
+            <input id="passengerName" name="fullName" placeholder="Passenger name..." #fullName="ngModel" [ngModel]="passenger.fullName" required minlength="3" maxlength="25">
+            <div id="nameInputError" *ngIf="fullName.errors?.required && fullName?.dirty">
+                this field is required
+            </div>
+            <div id="nameInputError" *ngIf="fullName.errors?.minlength && fullName?.dirty">
+                this field requires minimum 3 characters
+            </div>
+        </div>
+        <div class="formInnerContainers">
+            <label for="checkedIn">
+                <span>Checked in</span>
+                <input id="checkedIn" name="checkedIn" #checkedIn="ngModel" [(ngModel)]="passenger.checkedIn" type="checkBox"/>
+            </label>
+        </div>
+        <div class="formInnerContainers" *ngIf="passenger.checkedIn">
+            <label for="checkInDate">checkInDate</label>
+            <input id="checkInDate" name="checkInDate" #checkInDate="ngModel" [ngModel]="todayDate(passenger.checkInDate)" type="date"/>
+        </div>
+        <button [ngClass]="{'disabledBtn': addForm.invalid, 'submitBtn': addForm.valid}" type="submit" [disabled]="addForm.invalid">Edit</button>
+    </form>
+</div>

@@ -1,3 +1,15 @@
+#addPassenger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    background: rgb(11, 33, 73);
+    color: #fff;
+    border-radius: 5px;
+}
+
 #addPassengerForm {
     display: flex;
     flex-direction: column;

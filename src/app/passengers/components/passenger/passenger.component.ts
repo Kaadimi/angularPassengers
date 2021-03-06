@@ -24,10 +24,12 @@ export class PassengerComponent implements OnInit {
     }
   
 
-    editField(): void {
-        if (this.edit === true)
-            this.editEvent.emit({...this.passenger, fullName: this.name});
+    editField(): void { 
         this.edit = !this.edit;
+    }
+
+    changeName(fullName: string): void {
+        this.editEvent.emit({...this.passenger, fullName});
     }
 
     checkout(): void {

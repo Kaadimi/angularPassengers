@@ -1,16 +1,21 @@
 <h1 id="addNewPassenger">Add new Passenger</h1>
-<form id="addPassengerForm" #addForm="ngForm" (ngSubmit)="addPassenger(addForm)">
+<form id="addPassengerForm" #addForm="ngForm" (ngSubmit)="addPassenger(addForm)" novalidate>
     <div class="formInnerContainers">
         <label for="passengerName">Passenger name</label>
-        <input id="passengerName" name="fullName" placeholder="Passenger name..." ngModel required minlength="3" maxlength="25">
-        <!-- <p id="nameInputError">{{ error }}</p> -->
+        <input id="passengerName" name="fullName" placeholder="Passenger name..." #fullName="ngModel" [ngModel]="passenger.fullName" required minlength="3">
+        <div id="nameInputError" *ngIf="fullName.errors?.required && fullName?.dirty">
+            this field is required
+        </div>
+        <div id="nameInputError" *ngIf="fullName.errors?.minlength && fullName?.dirty">
+            this field requires minimum 3 characters
+        </div>
     </div>
     <h3 *ngIf="children.length">Children</h3>
-    <div class="formInnerContainers"  *ngFor="let child of children">
+    <div class="formInnerContainers" *ngFor="let child of children">
         <span>age: {{child.age}} - name: {{ child.name }}</span>
     </div>
     <form class="formInnerContainers" #childForm="ngForm" (ngSubmit)="addChild(childForm)">
-        <label fro="childName">Children</label>
+        <label for="childName">Children</label>
         <div id="addChildContainer">
             <input type="text" id="childName" name="childName" placeholder="Child name..." ngModel/>
             <input type="number" id="childAge" name="childAge" placeholder="Child age..." ngModel/>
@@ -19,10 +24,15 @@
     </form>
 
     <div class="formInnerContainers">
-        <label fro="checkInDate">checkInDate</label>
-        <input id="checkInDate" name="date" [min]="todayDate()" type="date" ngModel/>
+        <label for="checkedIn">
+            <span>Checked in</span>
+            <input id="checkedIn" name="checkedIn" #checkedIn="ngModel" [(ngModel)]="passenger.checkedIn" type="checkBox"/>
+        </label>
     </div>
-    <button id="submitBtn" type="submit">ADD</button>
+    <div class="formInnerContainers" *ngIf="passenger.checkedIn">
+        <label for="checkInDate">checkInDate</label>
+        <input id="checkInDate" name="date" #checkInDate="ngModel" [ngModel]="todayDate(passenger.checkInDate)" type="date"/>
+    </div>
+    <button [ngClass]="{'disabledBtn': addForm.invalid, 'submitBtn': addForm.valid}" type="submit" [disabled]="addForm.invalid">ADD</button>
 </form>
-
 <dialog-component *ngIf="error" [message]="error" (close)="closeDialog($event)"></dialog-component>

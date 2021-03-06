@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core'
+import { Component , Output, EventEmitter } from '@angular/core'
 import { NgForm } from '@angular/forms';
 
 import { Child, Passenger } from '../../../passenger'
@@ -9,10 +9,18 @@ import { Child, Passenger } from '../../../passenger'
     styleUrls: ['./addPassenger.component.css']
 })
 
-export class addPassengerComponent {
+export class addPassengerComponent  {
     children: Child[] = []
     name: string = ''
     error: string = ''
+    passenger: Passenger =  {
+        id: 0,
+        fullName: "",
+        checkedIn: false,
+        checkInDate: +(new Date()),
+        children: []
+    };
+
     @Output() addEvent: EventEmitter<Passenger> = new EventEmitter()
 
     nameValidator(passenger: string): boolean {
@@ -21,6 +29,7 @@ export class addPassengerComponent {
     }
 
     addPassenger(form: NgForm): void {
+        console.log(form.value)
         if (this.nameValidator(form.value.fullName)) {
             this.addEvent.emit({id: 0, fullName: form.value.fullName, checkedIn: form.value.date ? true : false,  checkInDate: new Date(form.value.date).getTime(), children: this.children});
             this.children = [];
@@ -48,11 +57,15 @@ export class addPassengerComponent {
             this.error = 'Child name can only contains alphanumeric charachters and between 3 and 25 in length.'
     }
 
-    todayDate() {
-        return new Date().toISOString().split("T")[0]
+    todayDate(date: number) {
+        return new Date(date).toISOString().split("T")[0]
     }
 
     closeDialog(msg: string): void {
         this.error = msg;
+    }
+
+    checkInHandle(checkedIn): void {
+        this.passenger.checkedIn = checkedIn;
     }
 }

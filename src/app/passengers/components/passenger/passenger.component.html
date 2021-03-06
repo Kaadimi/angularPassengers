@@ -1,8 +1,9 @@
 <div id="passengerHeader">
-    <span class="status" [ngStyle]="{backgroundColor: passenger.checkedIn ? 'turquoise' : 'tomato'}"></span>
-    <span>{{ i }} - </span>
-    <span *ngIf="!edit">{{ passenger.fullName }}</span>
-    <input *ngIf="edit" type="text" [value]="name" (input)="onInput($event)" placeholder="Change name..."/>
+    <div>
+        <span class="status" [ngStyle]="{backgroundColor: passenger.checkedIn ? 'turquoise' : 'tomato'}"></span>
+        <span> - {{ i }}</span>
+    </div>
+    <span>{{ passenger.fullName }}</span>
     <a id="detailsBtn" routerLink="/passenger/{{passenger.id}}">Details</a>
 </div>
 <div>
@@ -14,7 +15,7 @@
     </p>
 </div>
 <div id="passengerActions">
-    <button (click)="editField()" >Edit</button>
+    <button routerLink="edit/{{passenger.id}}">Edit</button>
     <button (click)="checkout()" [ngStyle]="{backgroundColor: !passenger.checkedIn ? 'turquoise' : 'tomato'}">{{ passenger.checkedIn ? 'Check out' : 'Check in' }}</button>
     <button (click)="delete()" [ngStyle]="{backgroundColor: 'red'}">Delete</button>
 </div>

@@ -10,11 +10,12 @@ import { addPassengerComponent } from './components/addPassenger/addPassenger.co
 import { AppRoutingModel } from '../app-routing.model'
 import { NotFoundComponent } from '../passengers/components/404Page/404.component'
 import { DialogComponent } from '../passengers/components/dialog/dialog.component'
+import { editPassengerComponent } from './components/editPassenger/editPassenger.component'
 
 @NgModule({
     declarations: [PassengerDashboardModuleComponent, PassengerCounterComponent,
         PassengerComponent, addPassengerComponent, PassengerDeatilComponent,
-        NotFoundComponent, DialogComponent],
+        NotFoundComponent, DialogComponent, editPassengerComponent],
     imports: [CommonModule, FormsModule, AppRoutingModel],
     exports: [PassengerDashboardModuleComponent]
 })

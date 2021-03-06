@@ -29,6 +29,7 @@ export class PassengerService {
     }
 
     editPassenger(passenger: Passenger): Observable<void | any>  {
+        console.log(passenger)
         return this.http.put(`${URL}/${passenger.id}`, passenger);
     }
 }

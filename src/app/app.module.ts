@@ -12,7 +12,7 @@ import { AppRoutingModel } from './app-routing.model'
     AppComponent
   ],
   imports: [
-    BrowserModule, PassengerModule, FormsModule, HttpClientModule, AppRoutingModel
+    BrowserModule, FormsModule, PassengerModule, HttpClientModule, AppRoutingModel
   ],
   providers: [],
   bootstrap: [AppComponent]
